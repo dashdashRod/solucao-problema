@@ -1,0 +1,60 @@
+<html>
+  
+  <body>
+    <style>
+        .circle {
+      width:10px;
+      height:10px;
+      border-radius:50px;
+      font-size:20px;
+      color:#0000FF;
+      line-height:100px;
+      background: blue;
+    }
+
+      .col-sm-2 > span, .col-sm-2 > p {
+        display: inline-block;
+    }
+    </style>
+    <div>
+      <label for="primeiro"  style="padding: 20px;">Categorias:</label>
+      <select [(ngModel)] = "resultado" (change)="firstEvent($event)" style="padding-left: 20px; display: inline;" id="primeiro">
+        <option *ngFor="let cat of categorias | keyvalue">{{cat.key}}</option>
+        <!-- <option [value]="cat.key" *ngFor="let cat of categorias | keyvalue">{{cat.key}}</option> -->
+      </select>
+      <label for="segundo"  style="padding: 20px;">Produtos:</label>
+      <select [ngModel]="first_temp" (change)="secondEvent($event)" style="padding-left: 20px; display: inline" id="segundo">
+          <option *ngFor="let i of first_temp">{{i}}</option>
+      </select>
+      <label for="terciero" style="padding: 30px;">Marca:</label>
+      <select [ngModel]="second_temp" (change)="lastEvent($event)" style="padding-left: 20px; display: inline" id="terceiro">
+        <option *ngFor="let i of second_temp">{{i}}</option>
+    </select>
+    
+    </div>
+    <div id="XX" style="text-align: center;"> 
+
+      <h1 style="color:blue"></h1> 
+      <h2></h2> 
+      <div style="width:70%;"> 
+        <p-chart #chart type="bar"
+            [data]="updateGraphFunction()" 
+            [options]="basicOptions" id="Mychart"> 
+        </p-chart>
+      </div> 
+    </div>
+    <div style="text-align: center;">
+      <p style="display: inline-block; padding-right: 450px;">
+        Meses
+      </p>
+    </div>
+    <div class="col-sm-2" style="text-align: center; margin: 20px;"> <span>
+      <div class="circle" style="margin: 15px;">
+      </div>
+      </span>
+      <p style="display: inline-block; vertical-align: bottom; padding-right: 490px;">
+        vendas
+      </p>
+    </div>
+  </body>
+</html>

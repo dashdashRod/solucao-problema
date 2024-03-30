@@ -1,0 +1,13 @@
+{% extends "blog/base.html" %}
+
+{% block title-content %}
+    <title>Blog new home</title>
+{% endblock %}
+{% block content %}
+    <h1>Who said this is your home</h1>
+    {% for post in posts%}
+        <h1>{{post.title}}</h1>
+        <p>Por {{post.author}} em {{post.date_posted}}</p>
+        <p>{{post.content}}</p>
+    {% endfor %}
+{% endblock content %}
